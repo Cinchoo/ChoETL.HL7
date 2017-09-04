@@ -187,6 +187,7 @@
     <Compile Include="Model\v2_3\Segments\PR1.cs" />
     <Compile Include="Model\v2_3\Segments\PID.cs" />
     <Compile Include="Model\v2_3\Segments\MSH.cs" />
+    <None Include=".gitignore" />
     <None Include="SampleMessages\ADT_A01.csv" />
     <None Include="SampleMessages\ORU_R01.csv" />
     <None Include="Sample1.csv" />
