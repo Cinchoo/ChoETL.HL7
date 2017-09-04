@@ -1,0 +1,8 @@
+C:\Personal\ChoETL.HL7\bin\Debug\ChoETL.HL7.exe.config
+C:\Personal\ChoETL.HL7\bin\Debug\ChoETL.HL7.exe
+C:\Personal\ChoETL.HL7\bin\Debug\ChoETL.HL7.pdb
+C:\Personal\ChoETL.HL7\obj\Debug\ChoETL.HL7.exe
+C:\Personal\ChoETL.HL7\obj\Debug\ChoETL.HL7.pdb
+C:\Personal\ChoETL.HL7\bin\Debug\ChoETL.dll
+C:\Personal\ChoETL.HL7\bin\Debug\ChoETL.pdb
+C:\Personal\ChoETL.HL7\obj\Debug\ChoETL.HL7.csprojResolveAssemblyReference.cache

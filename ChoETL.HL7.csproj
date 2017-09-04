@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4A19E90-CC6E-47A5-86A9-8F8033AAE8A5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChoETL.HL7</RootNamespace>
+    <AssemblyName>ChoETL.HL7</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChoETL, Version=1.0.3.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\ChoETL.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\ChoHL7MaxCountAttribute.cs" />
+    <Compile Include="ChoHL7Exception.cs" />
+    <Compile Include="ChoHL7MessageCache.cs" />
+    <Compile Include="ChoHL7RecordReader.cs" />
+    <Compile Include="ChoHL7Reader.cs" />
+    <Compile Include="Attributes\ChoHL7EnumTypeAttribute.cs" />
+    <Compile Include="ChoHL7AbstractMessage.cs" />
+    <Compile Include="Attributes\ChoHL7RepeatableElementAttribute.cs" />
+    <Compile Include="Attributes\ChoHL7SegmentAttribute.cs" />
+    <Compile Include="ChoHL7MessageType.cs" />
+    <Compile Include="ChoHL7Version.cs" />
+    <Compile Include="ChoHL7Configuration.cs" />
+    <Compile Include="ChoHL7Segment.cs" />
+    <Compile Include="ChoHL7Field.cs" />
+    <Compile Include="ChoHL7Component.cs" />
+    <Compile Include="ChoHL7Subcomponent.cs" />
+    <Compile Include="ChoHL7AbstractField.cs" />
+    <Compile Include="ChoHL7AbstractGroup.cs" />
+    <Compile Include="Extensions\ChoHL7Helper.cs" />
+    <Compile Include="IChoHL7Group.cs" />
+    <Compile Include="IChoHL7Object.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CK.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CF.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_CCD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_MOC.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_LA1.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_ELD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_EIP.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_DLT.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_DLD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_DIN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_PRL.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_PLN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_PIP.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_PI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_OSP.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_OSD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_NDL.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_OCD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_VR.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_UVC.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_SPS.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_SPD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_RI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_RANGE.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_ABS_RANGE.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_RFR.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_VWI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_CD_ELECTRODE.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_CSU.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_CCP.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_MDV.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\AD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_PCF.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_DTN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_DDI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_PTA.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_RMC.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_PEN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_AUI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CNE.cs" />
+    <Compile Include="Model\v2_3\DataTypes\DR.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CQ.cs" />
+    <Compile Include="Model\v2_3\DataTypes\ED.cs" />
+    <Compile Include="Model\v2_3\DataTypes\FC.cs" />
+    <Compile Include="Model\v2_3\DataTypes\VH.cs" />
+    <Compile Include="Model\v2_3\DataTypes\TQ.cs" />
+    <Compile Include="Model\v2_3\DataTypes\SN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\SCV.cs" />
+    <Compile Include="Model\v2_3\DataTypes\RP.cs" />
+    <Compile Include="Model\v2_3\DataTypes\RI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\RCD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\QSC.cs" />
+    <Compile Include="Model\v2_3\DataTypes\QIP.cs" />
+    <Compile Include="Model\v2_3\DataTypes\NA.cs" />
+    <Compile Include="Model\v2_3\DataTypes\MA.cs" />
+    <Compile Include="Model\v2_3\DataTypes\MO.cs" />
+    <Compile Include="Model\v2_3\DataTypes\JCC.cs" />
+    <Compile Include="Model\v2_3\DataTypes\EI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\DT.cs" />
+    <Compile Include="Model\v2_3\DataTypes\FT.cs" />
+    <Compile Include="Model\v2_3\DataTypes\PPN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\PL.cs" />
+    <Compile Include="Model\v2_3\DataTypes\TM.cs" />
+    <Compile Include="Model\v2_3\DataTypes\VARIES.cs" />
+    <Compile Include="Model\v2_3\DataTypes\TX.cs" />
+    <Compile Include="Model\v2_3\DataTypes\TN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\TODO.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CP.cs" />
+    <Compile Include="Model\v2_3\DataTypes\XAD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\DLN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\XCN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\XON.cs" />
+    <Compile Include="Model\v2_3\DataTypes\XTN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\XPN.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CE.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CX.cs" />
+    <Compile Include="Model\v2_3\DataTypes\SI.cs" />
+    <Compile Include="Model\v2_3\DataTypes\PT.cs" />
+    <Compile Include="Model\v2_3\DataTypes\HD.cs" />
+    <Compile Include="Model\v2_3\DataTypes\IS.cs" />
+    <Compile Include="Model\v2_3\DataTypes\ID.cs" />
+    <Compile Include="Model\v2_3\DataTypes\CM_MSG.cs" />
+    <Compile Include="Model\v2_3\DataTypes\NM.cs" />
+    <Compile Include="Model\v2_3\DataTypes\TS.cs" />
+    <Compile Include="Model\v2_3\DataTypes\ST.cs" />
+    <Compile Include="Model\v2_3\Enums\Enums.cs" />
+    <Compile Include="Model\v2_3\Groups\ADT_A01\ADT_A01_INSURANCE.cs" />
+    <Compile Include="Model\v2_3\Groups\ADT_A01\ADT_A01_PROCEDURE.cs" />
+    <Compile Include="Model\v2_3\Groups\ORU_R01\ORU_R01_OBSERVATION_GROUP.cs" />
+    <Compile Include="Model\v2_3\Groups\ORU_R01\ORU_R01_ORDER_GROUP.cs" />
+    <Compile Include="Model\v2_3\Groups\ORU_R01\ORU_R01_RESULTS_GROUP.cs" />
+    <Compile Include="Model\v2_3\Groups\ORU_R01\ORU_R01_PATIENT_VISIT_GROUP.cs" />
+    <Compile Include="Model\v2_3\Groups\ORU_R01\ORU_R01_PATIENT_GROUP.cs" />
+    <Compile Include="Model\v2_3\Messages\ADT_A01.cs" />
+    <Compile Include="Model\v2_3\Segments\EVN.cs" />
+    <Compile Include="Model\v2_3\Segments\IN3.cs" />
+    <Compile Include="Model\v2_3\Segments\IN2.cs" />
+    <Compile Include="Model\v2_3\Segments\OBX.cs" />
+    <Compile Include="Model\v2_3\Segments\OBR.cs" />
+    <Compile Include="Model\v2_3\Segments\ORC.cs" />
+    <Compile Include="Model\v2_3\Segments\DSC.cs" />
+    <Compile Include="Model\v2_3\Segments\CTI.cs" />
+    <Compile Include="Model\v2_3\Segments\NK1.cs" />
+    <Compile Include="Model\v2_3\Segments\PD1.cs" />
+    <Compile Include="Model\v2_3\Segments\IN1.cs" />
+    <Compile Include="Model\v2_3\Segments\ROL.cs" />
+    <Compile Include="Model\v2_3\Segments\PR1.cs" />
+    <Compile Include="Model\v2_3\Segments\PID.cs" />
+    <Compile Include="Model\v2_3\Segments\MSH.cs" />
+    <None Include="SampleMessages\ADT_A01.csv" />
+    <None Include="SampleMessages\ORU_R01.csv" />
+    <None Include="Sample1.csv" />
+    <Compile Include="ChoHL7Message.cs" />
+    <Compile Include="Model\v2_3\Messages\ORU_R01.cs" />
+    <Compile Include="Model\v2_3\Segments\TODO.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>COPY $(ProjectDir)*.csv $(TargetDir)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
