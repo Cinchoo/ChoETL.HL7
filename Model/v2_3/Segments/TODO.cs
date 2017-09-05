@@ -18,9 +18,6 @@ namespace ChoETL.HL7.Model.v2_3
     public class DB1 : ChoHL7Segment
     {
     }
-    public class AL1 : ChoHL7Segment
-    {
-    }
     public class DG1 : ChoHL7Segment
     {
     }
@@ -28,9 +25,6 @@ namespace ChoETL.HL7.Model.v2_3
     {
     }
     public class GT1 : ChoHL7Segment
-    {
-    }
-    public class ACC : ChoHL7Segment
     {
     }
     public class UB1 : ChoHL7Segment
