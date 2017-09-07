@@ -172,6 +172,12 @@
     <Compile Include="Model\v2_3\Groups\ORU_R01\ORU_R01_PATIENT_VISIT_GROUP.cs" />
     <Compile Include="Model\v2_3\Groups\ORU_R01\ORU_R01_PATIENT_GROUP.cs" />
     <Compile Include="Model\v2_3\Messages\ADT_A01.cs" />
+    <Compile Include="Model\v2_3\Segments\CTD.cs" />
+    <Compile Include="Model\v2_3\Segments\CSS.cs" />
+    <Compile Include="Model\v2_3\Segments\CSR.cs" />
+    <Compile Include="Model\v2_3\Segments\CSP.cs" />
+    <Compile Include="Model\v2_3\Segments\CM2.cs" />
+    <Compile Include="Model\v2_3\Segments\CM1.cs" />
     <Compile Include="Model\v2_3\Segments\CM0.cs" />
     <Compile Include="Model\v2_3\Segments\CDM.cs" />
     <Compile Include="Model\v2_3\Segments\BLG.cs" />
