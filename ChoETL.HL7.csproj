@@ -191,6 +191,15 @@
     <Compile Include="Model\v2_3\Segments\AIG.cs" />
     <Compile Include="Model\v2_3\Segments\ADD.cs" />
     <Compile Include="Model\v2_3\Segments\ACC.cs" />
+    <Compile Include="Model\v2_3\Segments\ERR.cs" />
+    <Compile Include="Model\v2_3\Segments\ERQ.cs" />
+    <Compile Include="Model\v2_3\Segments\EQL.cs" />
+    <Compile Include="Model\v2_3\Segments\DSP.cs" />
+    <Compile Include="Model\v2_3\Segments\DRG.cs" />
+    <Compile Include="Model\v2_3\Segments\DG1.cs" />
+    <Compile Include="Model\v2_3\Segments\DB1.cs" />
+    <Compile Include="Model\v2_3\Segments\FT1.cs" />
+    <Compile Include="Model\v2_3\Segments\FAC.cs" />
     <Compile Include="Model\v2_3\Segments\EVN.cs" />
     <Compile Include="Model\v2_3\Segments\IN3.cs" />
     <Compile Include="Model\v2_3\Segments\IN2.cs" />

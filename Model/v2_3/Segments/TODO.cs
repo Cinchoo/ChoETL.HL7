@@ -15,15 +15,6 @@ namespace ChoETL.HL7.Model.v2_3
     public class PV2 : ChoHL7Segment
     {
     }
-    public class DB1 : ChoHL7Segment
-    {
-    }
-    public class DG1 : ChoHL7Segment
-    {
-    }
-    public class DRG : ChoHL7Segment
-    {
-    }
     public class GT1 : ChoHL7Segment
     {
     }
