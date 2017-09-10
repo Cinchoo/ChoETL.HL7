@@ -198,6 +198,13 @@
     <Compile Include="Model\v2_3\Segments\DRG.cs" />
     <Compile Include="Model\v2_3\Segments\DG1.cs" />
     <Compile Include="Model\v2_3\Segments\DB1.cs" />
+    <Compile Include="Model\v2_3\Segments\MRG.cs" />
+    <Compile Include="Model\v2_3\Segments\MFI.cs" />
+    <Compile Include="Model\v2_3\Segments\MFE.cs" />
+    <Compile Include="Model\v2_3\Segments\MFA.cs" />
+    <Compile Include="Model\v2_3\Segments\LRL.cs" />
+    <Compile Include="Model\v2_3\Segments\LOC.cs" />
+    <Compile Include="Model\v2_3\Segments\LDP.cs" />
     <Compile Include="Model\v2_3\Segments\LCH.cs" />
     <Compile Include="Model\v2_3\Segments\LCC.cs" />
     <Compile Include="Model\v2_3\Segments\IAM.cs" />
