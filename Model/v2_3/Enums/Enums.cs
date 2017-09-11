@@ -833,5 +833,4 @@ namespace ChoETL.HL7.Model.v2_3
         AccountLevel = 'A',
         VisitLevel = 'V',
     }
-
 }

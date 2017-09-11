@@ -26,7 +26,7 @@ namespace ChoETL.HL7
                     return false;
 
                 ChoHL7Segment segment1 = segments.Peek;
-                return segment1.Type == attr.Name;
+                return segment1.TargetType == attr.Name;
             }
         }
     }

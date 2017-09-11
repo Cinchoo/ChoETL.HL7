@@ -221,7 +221,7 @@ namespace ChoETL.HL7
                     msg.Construct(iter);
                     msg.IsValid = iter.Peek == null;
                     if (iter.Peek != null)
-                        msg.SetError("Unrecognized '{0}' segment found in message.".FormatString(iter.Peek.Type));
+                        msg.SetError("Unrecognized '{0}' segment found in message.".FormatString(iter.Peek.TargetType));
                 }
             }
             catch (Exception ex)

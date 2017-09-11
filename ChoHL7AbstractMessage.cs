@@ -101,11 +101,11 @@ namespace ChoETL.HL7
                     if (segment1 == null)
                         return true;
 
-                    if (!hl7Attr.Optional && segment1.Type != segmmentType)
+                    if (!hl7Attr.Optional && segment1.TargetType != segmmentType)
                         throw new ChoHL7Exception("Missing '{0}' segment in '{1}' message.".FormatString(segmmentType, GetType().Name));
                     else
                     {
-                        if (segment1.Type == segmmentType)
+                        if (segment1.TargetType == segmmentType)
                         {
                             AddOrUpdateSegmentCache(segment1, hl7Attr.Repeatable);
                             segments.MoveNext();
@@ -118,7 +118,7 @@ namespace ChoETL.HL7
                                 while (segments.Peek != null)
                                 {
                                     segment1 = segments.Peek;
-                                    if (segment1.Type == segmmentType)
+                                    if (segment1.TargetType == segmmentType)
                                     {
                                         AddOrUpdateSegmentCache(segment1, hl7Attr.Repeatable);
                                         segments.MoveNext();
@@ -168,21 +168,21 @@ namespace ChoETL.HL7
 
         private void AddOrUpdateSegmentCache(ChoHL7Segment segment, bool isRepeatable)
         {
-            Console.WriteLine("Group: " + GetType().Name + " Segment: " + segment.Type);
+            Console.WriteLine("Group: " + GetType().Name + " Segment: " + segment.TargetType);
 
             segment.Validate();
 
             if (isRepeatable)
             {
-                if (!_repeatableSegmentCache.ContainsKey(segment.Type))
-                    _repeatableSegmentCache.Add(segment.Type, new List<ChoHL7Segment>());
+                if (!_repeatableSegmentCache.ContainsKey(segment.TargetType))
+                    _repeatableSegmentCache.Add(segment.TargetType, new List<ChoHL7Segment>());
 
-                _repeatableSegmentCache[segment.Type].Add(segment);
+                _repeatableSegmentCache[segment.TargetType].Add(segment);
             }
             else
             {
-                if (!_segmentCache.ContainsKey(segment.Type))
-                    _segmentCache.Add(segment.Type, segment);
+                if (!_segmentCache.ContainsKey(segment.TargetType))
+                    _segmentCache.Add(segment.TargetType, segment);
             }
         }
         private void AddOrUpdateGroupCache(IChoHL7Group group)

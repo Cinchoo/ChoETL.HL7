@@ -11,7 +11,7 @@ namespace ChoETL.HL7
 {
     public class ChoHL7Segment : IChoHL7Object
     {
-        public string Type
+        internal string TargetType
         {
             get;
             private set;
@@ -31,13 +31,13 @@ namespace ChoETL.HL7
 
         public ChoHL7Segment()
         {
-            Type = GetType().Name;
+            TargetType = GetType().Name;
         }
 
         public ChoHL7Segment(string type, ChoHL7Segment segment = null)
         {
             ChoGuard.ArgumentNotNullOrEmpty(type, nameof(type));
-            Type = type;
+            TargetType = type;
 
             if (segment != null && segment._fields != null)
                 _fields = new List<ChoHL7Field[]>(segment._fields);
@@ -47,7 +47,7 @@ namespace ChoETL.HL7
         {
             if (Fields.Count > 0)
             {
-                StringBuilder msg = new StringBuilder(Type);
+                StringBuilder msg = new StringBuilder(TargetType);
 
                 foreach (var sc in Fields)
                 {

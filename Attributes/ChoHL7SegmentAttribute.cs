@@ -81,7 +81,7 @@ namespace ChoETL.HL7
                 if (segment == null)
                     throw new ChoHL7Exception("'{0}' is not a segment object.".FormatString(groupOrSegmentType.FullName));
 
-                segmentTypeCache.Add(groupOrSegmentType, segment.Type);
+                segmentTypeCache.Add(groupOrSegmentType, segment.TargetType);
             }
 
             return segmentTypeCache[groupOrSegmentType];

@@ -198,6 +198,10 @@
     <Compile Include="Model\v2_3\Segments\DRG.cs" />
     <Compile Include="Model\v2_3\Segments\DG1.cs" />
     <Compile Include="Model\v2_3\Segments\DB1.cs" />
+    <Compile Include="Model\v2_3\Segments\NTE.cs" />
+    <Compile Include="Model\v2_3\Segments\NST.cs" />
+    <Compile Include="Model\v2_3\Segments\NSC.cs" />
+    <Compile Include="Model\v2_3\Segments\MSA.cs" />
     <Compile Include="Model\v2_3\Segments\MRG.cs" />
     <Compile Include="Model\v2_3\Segments\MFI.cs" />
     <Compile Include="Model\v2_3\Segments\MFE.cs" />
@@ -215,6 +219,10 @@
     <Compile Include="Model\v2_3\Segments\EVN.cs" />
     <Compile Include="Model\v2_3\Segments\IN3.cs" />
     <Compile Include="Model\v2_3\Segments\IN2.cs" />
+    <Compile Include="Model\v2_3\Segments\NPU.cs" />
+    <Compile Include="Model\v2_3\Segments\NCK.cs" />
+    <Compile Include="Model\v2_3\Segments\ODT.cs" />
+    <Compile Include="Model\v2_3\Segments\ODS.cs" />
     <Compile Include="Model\v2_3\Segments\OBX.cs" />
     <Compile Include="Model\v2_3\Segments\OBR.cs" />
     <Compile Include="Model\v2_3\Segments\ORC.cs" />

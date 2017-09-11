@@ -15,7 +15,7 @@ namespace ChoETL.HL7
             ChoETLFrxBootstrap.TraceLevel = System.Diagnostics.TraceLevel.Verbose;
             ChoETLFramework.Initialize();
 
-            dynamic hl7Message = ChoHL7Message.Parse("Sample1.csv", new ChoHL7Configuration(ChoHL7MessageType.ORU_R01) { Comments = new string[] { ";" } });
+            dynamic hl7Message = ChoHL7Message.Parse("Sample1.csv", new ChoHL7Configuration() { Comments = new string[] { ";" } });
             Console.WriteLine(hl7Message.Version);
             Console.WriteLine(hl7Message.MessageType);
             Console.WriteLine(hl7Message.GetType().FullName);
