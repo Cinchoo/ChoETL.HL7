@@ -29,14 +29,13 @@ namespace ChoETL.HL7.Model.v2_3
         }
         [Description("Diet, Supplement, or Preference Code")]
         [Required]
-        [MaxLength(20)]
+        [MaxLength(60)]
         [ChoHL7MaxCount(20)]
         public CE[] DietSupplementorPreferenceCode
         {
             get { return GetValuesAt<CE>(2); }
         }
         [Description("Text Instruction")]
-        [Required]
         [MaxLength(80)]
         public ST TextInstruction
         {

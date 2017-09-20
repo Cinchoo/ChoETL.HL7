@@ -28,7 +28,6 @@ namespace ChoETL.HL7.Model.v2_3
             get { return GetValuesAt<CE>(1); }
         }
         [Description("Text Instruction")]
-        [Required]
         [MaxLength(80)]
         public ST TextInstruction
         {

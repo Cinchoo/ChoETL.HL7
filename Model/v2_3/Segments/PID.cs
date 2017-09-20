@@ -59,6 +59,7 @@ namespace ChoETL.HL7.Model.v2_3
         }
         [Description("Sex")]
         [MaxLength(1)]
+        [ChoHL7EnumType(typeof(Sex))]
         public IS Sex
         {
             get { return GetValueAt<IS>(7); }
@@ -107,6 +108,7 @@ namespace ChoETL.HL7.Model.v2_3
         }
         [Description("Marital Status")]
         [MaxLength(1)]
+        [ChoHL7EnumType(typeof(MaritalStatus))]
         public IS MaritalStatus
         {
             get { return GetValueAt<IS>(15); }

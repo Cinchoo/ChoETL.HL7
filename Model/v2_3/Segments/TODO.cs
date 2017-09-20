@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace ChoETL.HL7.Model.v2_3
 {
-    public class PV1 : ChoHL7Segment
-    {
-    }
     public class PV2 : ChoHL7Segment
     {
     }
