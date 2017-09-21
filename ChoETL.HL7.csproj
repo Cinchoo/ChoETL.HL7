@@ -231,6 +231,14 @@
     <Compile Include="Model\v2_3\Segments\ODS.cs" />
     <Compile Include="Model\v2_3\Segments\OBX.cs" />
     <Compile Include="Model\v2_3\Segments\OBR.cs" />
+    <Compile Include="Model\v2_3\Segments\RF1.cs" />
+    <Compile Include="Model\v2_3\Segments\RDT.cs" />
+    <Compile Include="Model\v2_3\Segments\RDF.cs" />
+    <Compile Include="Model\v2_3\Segments\QRF.cs" />
+    <Compile Include="Model\v2_3\Segments\QRD.cs" />
+    <Compile Include="Model\v2_3\Segments\QCK.cs" />
+    <Compile Include="Model\v2_3\Segments\QAK.cs" />
+    <Compile Include="Model\v2_3\Segments\PV2.cs" />
     <Compile Include="Model\v2_3\Segments\PV1.cs" />
     <Compile Include="Model\v2_3\Segments\PTH.cs" />
     <Compile Include="Model\v2_3\Segments\PSH.cs" />

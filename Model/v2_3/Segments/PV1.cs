@@ -169,5 +169,172 @@ namespace ChoETL.HL7.Model.v2_3
         {
             get { return GetValuesAt<DT>(24); }
         }
+
+
+        [Description("Contract Amount")]
+        [MaxLength(12)]
+        public NM[] ContractAmount
+        {
+            get { return GetValuesAt<NM>(25); }
+        }
+        [Description("Contract Period")]
+        [MaxLength(3)]
+        public NM[] ContractPeriod
+        {
+            get { return GetValuesAt<NM>(26); }
+        }
+        [Description("Interest Code")]
+        [MaxLength(2)]
+        public ID InterestCode
+        {
+            get { return GetValueAt<ID>(27); }
+        }
+        [Description("Transfer to Bad Debt Code")]
+        [MaxLength(1)]
+        public ID TransfertoBadDebtCode
+        {
+            get { return GetValueAt<ID>(28); }
+        }
+        [Description("Transfer to Bad Debt Date")]
+        [MaxLength(8)]
+        public DT TransfertoBadDebtDate
+        {
+            get { return GetValueAt<DT>(29); }
+        }
+        [Description("Bad Debt Agency Code")]
+        [MaxLength(10)]
+        public ID BadDebtAgencyCode
+        {
+            get { return GetValueAt<ID>(30); }
+        }
+        [Description("Bad Debt Transfer Amount")]
+        [MaxLength(12)]
+        public NM BadDebtTransferAmount
+        {
+            get { return GetValueAt<NM>(31); }
+        }
+        [Description("Bad Debt Recovery Amount")]
+        [MaxLength(12)]
+        public NM BadDebtRecoveryAmount
+        {
+            get { return GetValueAt<NM>(32); }
+        }
+        [Description("Delete Account Indicator")]
+        [MaxLength(1)]
+        public ID DeleteAccountIndicator
+        {
+            get { return GetValueAt<ID>(33); }
+        }
+        [Description("Delete Account Date")]
+        [MaxLength(8)]
+        public DT DeleteAccountDate
+        {
+            get { return GetValueAt<DT>(34); }
+        }
+        [Description("Discharge Disposition")]
+        [MaxLength(3)]
+        [ChoHL7EnumType(typeof(DischargeDisposition))]
+        public ID DischargeDisposition
+        {
+            get { return GetValueAt<ID>(35); }
+        }
+        [Description("Discharged to Location")]
+        [MaxLength(25)]
+        public CM_DLD DischargedtoLocation
+        {
+            get { return GetValueAt<CM_DLD>(36); }
+        }
+        [Description("Diet Type")]
+        [MaxLength(2)]
+        public ID DietType
+        {
+            get { return GetValueAt<ID>(37); }
+        }
+        [Description("Servicing Facility")]
+        [MaxLength(2)]
+        public ID ServicingFacility
+        {
+            get { return GetValueAt<ID>(38); }
+        }
+        [Description("Bed Status")]
+        [MaxLength(1)]
+        [ChoHL7EnumType(typeof(BedStatus))]
+        public IS BedStatus
+        {
+            get { return GetValueAt<IS>(39); }
+        }
+        [Description("Account Status")]
+        [MaxLength(2)]
+        public ID AccountStatus
+        {
+            get { return GetValueAt<ID>(40); }
+        }
+        [Description("Pending Location")]
+        [MaxLength(12)]
+        public PL PendingLocation
+        {
+            get { return GetValueAt<PL>(41); }
+        }
+        [Description("Prior Temporary Location")]
+        [MaxLength(12)]
+        public PL PriorTemporaryLocation
+        {
+            get { return GetValueAt<PL>(42); }
+        }
+        [Description("Admit Date/Time")]
+        [MaxLength(26)]
+        public TS AdmitDateTime
+        {
+            get { return GetValueAt<TS>(43); }
+        }
+        [Description("Discharge Date/Time")]
+        [MaxLength(26)]
+        public TS DischargeDateTime
+        {
+            get { return GetValueAt<TS>(44); }
+        }
+        [Description("Current Patient Balance")]
+        [MaxLength(12)]
+        public NM CurrentPatientBalance
+        {
+            get { return GetValueAt<NM>(45); }
+        }
+        [Description("Total Charges")]
+        [MaxLength(12)]
+        public NM TotalCharges
+        {
+            get { return GetValueAt<NM>(46); }
+        }
+        [Description("Total Adjustments")]
+        [MaxLength(12)]
+        public NM TotalAdjustments
+        {
+            get { return GetValueAt<NM>(47); }
+        }
+        [Description("Total Payments")]
+        [MaxLength(12)]
+        public NM TotalPayments
+        {
+            get { return GetValueAt<NM>(48); }
+        }
+        [Description("Alternate Visit ID")]
+        [MaxLength(20)]
+        public CX AlternateVisitID
+        {
+            get { return GetValueAt<CX>(49); }
+        }
+        [Description("Visit Indicator")]
+        [MaxLength(1)]
+        [ChoHL7EnumType(typeof(VisitIndicator))]
+        public IS VisitIndicator
+        {
+            get { return GetValueAt<IS>(50); }
+        }
+        [Description("Other Healthcare Provider")]
+        [MaxLength(60)]
+        public XCN[] OtherHealthcareProvider
+        {
+            get { return GetValuesAt<XCN>(51); }
+        }
     }
 }
