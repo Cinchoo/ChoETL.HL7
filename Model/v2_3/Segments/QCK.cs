@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace ChoETL.HL7.Model.v2_3
 {
     /// <summary>
-    /// QAK: Query Acknowledgement
+    /// QCK: QCK
     /// </summary>
-    public class QAK : ChoHL7Segment
+    public class QCK : ChoHL7Segment
     {
         [Description("Contents")]
         [MaxLength(10000000)]

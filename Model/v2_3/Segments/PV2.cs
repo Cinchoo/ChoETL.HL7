@@ -174,7 +174,7 @@ namespace ChoETL.HL7.Model.v2_3
         }
         [Description("Expected Discharge Disposition")]
         [MaxLength(2)]
-        [ChoHL7EnumType(typeof(DischargeDisposition)]
+        [ChoHL7EnumType(typeof(DischargeDisposition))]
         public IS ExpectedDischargeDisposition
         {
             get { return GetValueAt<IS>(26); }

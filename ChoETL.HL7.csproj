@@ -231,6 +231,14 @@
     <Compile Include="Model\v2_3\Segments\ODS.cs" />
     <Compile Include="Model\v2_3\Segments\OBX.cs" />
     <Compile Include="Model\v2_3\Segments\OBR.cs" />
+    <Compile Include="Model\v2_3\Segments\RXR.cs" />
+    <Compile Include="Model\v2_3\Segments\RXO.cs" />
+    <Compile Include="Model\v2_3\Segments\RXG.cs" />
+    <Compile Include="Model\v2_3\Segments\RXE.cs" />
+    <Compile Include="Model\v2_3\Segments\RXD.cs" />
+    <Compile Include="Model\v2_3\Segments\RXC.cs" />
+    <Compile Include="Model\v2_3\Segments\RXA.cs" />
+    <Compile Include="Model\v2_3\Segments\RGS.cs" />
     <Compile Include="Model\v2_3\Segments\RF1.cs" />
     <Compile Include="Model\v2_3\Segments\RDT.cs" />
     <Compile Include="Model\v2_3\Segments\RDF.cs" />
@@ -256,6 +264,8 @@
     <Compile Include="Model\v2_3\Segments\PD1.cs" />
     <Compile Include="Model\v2_3\Segments\IN1.cs" />
     <Compile Include="Model\v2_3\Segments\PRA.cs" />
+    <Compile Include="Model\v2_3\Segments\RQD.cs" />
+    <Compile Include="Model\v2_3\Segments\RQ1.cs" />
     <Compile Include="Model\v2_3\Segments\ROL.cs" />
     <Compile Include="Model\v2_3\Segments\PR1.cs" />
     <Compile Include="Model\v2_3\Segments\PID.cs" />
