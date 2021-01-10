@@ -232,6 +232,14 @@
     <Compile Include="Model\v2_3\Segments\ODS.cs" />
     <Compile Include="Model\v2_3\Segments\OBX.cs" />
     <Compile Include="Model\v2_3\Segments\OBR.cs" />
+    <Compile Include="Model\v2_3\Segments\SPR.cs" />
+    <Compile Include="Model\v2_3\Segments\SCH.cs" />
+    <Compile Include="Model\v2_3\Segments\URS.cs" />
+    <Compile Include="Model\v2_3\Segments\URD.cs" />
+    <Compile Include="Model\v2_3\Segments\UB2.cs" />
+    <Compile Include="Model\v2_3\Segments\UB1.cs" />
+    <Compile Include="Model\v2_3\Segments\TXA.cs" />
+    <Compile Include="Model\v2_3\Segments\STF.cs" />
     <Compile Include="Model\v2_3\Segments\RXR.cs" />
     <Compile Include="Model\v2_3\Segments\RXO.cs" />
     <Compile Include="Model\v2_3\Segments\RXG.cs" />
@@ -277,7 +285,6 @@
     <None Include="Sample1.csv" />
     <Compile Include="ChoHL7Message.cs" />
     <Compile Include="Model\v2_3\Messages\ORU_R01.cs" />
-    <Compile Include="Model\v2_3\Segments\TODO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
