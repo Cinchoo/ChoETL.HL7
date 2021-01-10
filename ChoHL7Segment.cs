@@ -16,7 +16,16 @@ namespace ChoETL.HL7
             get;
             private set;
         }
-
+        public string Line
+        {
+            get;
+            internal set;
+        }
+        public long? LineNo
+        {
+            get;
+            internal set;
+        }
         private readonly List<ChoHL7Field[]> _fields = new List<ChoHL7Field[]>();
         protected List<ChoHL7Field[]> Fields
         {
@@ -161,7 +170,10 @@ namespace ChoETL.HL7
                     Validator.TryValidateValue(propValueText, context, results, ChoTypeDescriptor.GetPropetyAttributes<ValidationAttribute>(ChoTypeDescriptor.GetProperty<ValidationAttribute>(GetType(), pi.Name)));
                     if (results.Count > 0)
                     {
-                        throw new ChoHL7Exception("Failed to validate '{0}' member. {2}{1}".FormatString(pi.FullName(), ChoHL7Helper.ToString(results), Environment.NewLine));
+                        if (Configuration.DisableValueInErrorMessage)
+                            throw new ChoHL7Exception("Failed to validate '{0}' member. {2}{1}".FormatString(pi.FullName(), ChoHL7Helper.ToString(results), Environment.NewLine));
+                        else
+                            throw new ChoHL7Exception("Failed to validate '{0}' member [Value: {3}]. {2}{1}".FormatString(pi.FullName(), ChoHL7Helper.ToString(results), Environment.NewLine, propValueText));
                     }
 
                     try
@@ -179,7 +191,7 @@ namespace ChoETL.HL7
             }
         }
 
-        internal static ChoHL7Segment Parse(string line, ChoHL7Configuration configuration = null)
+        internal static ChoHL7Segment Parse(string line, long? lineNo = null, ChoHL7Configuration configuration = null)
         {
             configuration = configuration ?? ChoHL7Configuration.Instance;
             if (line.IsNullOrWhiteSpace())
@@ -196,6 +208,8 @@ namespace ChoETL.HL7
             int index = 0;
             ChoHL7Segment rec = CreateInstance(configuration, segmentType); //new ChoHL7Segment(segmentType);
             rec.Configuration = configuration;
+            rec.Line = line;
+            rec.LineNo = lineNo;
 
             foreach (var field in fields.Skip(1))
             {
@@ -234,13 +248,13 @@ namespace ChoETL.HL7
             return msg;
         }
 
-        internal static bool TryParse(string line, ChoHL7Configuration configuration, out ChoHL7Segment rec, out string errMsg)
+        public static bool TryParse(string line, ChoHL7Configuration configuration, out ChoHL7Segment rec, out string errMsg)
         {
             rec = null;
             errMsg = null;
             try
             {
-                rec = Parse(line, configuration);
+                rec = Parse(line, null, configuration);
                 return true;
             }
             catch (Exception ex)

@@ -15,11 +15,11 @@ namespace ChoETL.HL7
     internal class ChoHL7RecordReader : ChoRecordReader
     {
         private IChoNotifyRecordRead _callbackRecord;
-        private bool _headerFound = false;
-        private bool _excelSeparatorFound = false;
-        private string[] _fieldNames = null;
+        //private bool _headerFound = false;
+        //private bool _excelSeparatorFound = false;
+        //private string[] _fieldNames = null;
         private bool _configCheckDone = false;
-        private Dictionary<string, string> fieldNameValues = null;
+        //private Dictionary<string, string> fieldNameValues = null;
         internal ChoReader Reader = null;
 
         public ChoHL7Configuration Configuration
@@ -128,8 +128,8 @@ namespace ChoETL.HL7
 
                     if (!_configCheckDone)
                     {
-                        ChoHL7Version version;
-                        ChoHL7MessageType mt;
+                        //ChoHL7Version version;
+                        //ChoHL7MessageType mt;
                         Configuration.Validate(pair.Item2);
                         _configCheckDone = true;
                     }
@@ -204,8 +204,14 @@ namespace ChoETL.HL7
                     //    rec.DoObjectLevelValidation(Configuration, Configuration.CSVRecordFieldConfigurations);
                 }
 
-                if (!RaiseAfterRecordLoad(rec, pair))
+                bool skip = false;
+                if (!RaiseAfterRecordLoad(rec, pair, ref skip))
                     return false;
+                else if (skip)
+                {
+                    rec = null;
+                    return true;
+                }
             }
             catch (ChoHL7Exception)
             {
@@ -217,7 +223,7 @@ namespace ChoETL.HL7
             }
             catch (Exception ex)
             {
-                ChoETLFramework.HandleException(ex);
+                ChoETLFramework.HandleException(ref ex);
                 if (Configuration.ErrorMode == ChoErrorMode.IgnoreAndContinue)
                 {
                     rec = null;
@@ -453,8 +459,8 @@ namespace ChoETL.HL7
                 }
             }
 
-            char startChar;
-            char endChar;
+            //char startChar;
+            //char endChar;
 
             //quotes are quoted and doubled (excel) i.e. 15" -> field1,"15""",field3
             //if (fieldValue.Contains(Configuration.DoubleQuoteChar))
@@ -551,17 +557,20 @@ namespace ChoETL.HL7
             return true;
         }
 
-        private bool RaiseAfterRecordLoad(object target, Tuple<long, string> pair)
+        private bool RaiseAfterRecordLoad(object target, Tuple<long, string> pair, ref bool skip)
         {
+            bool ret = true;
+            bool sp = false;
             if (_callbackRecord != null)
             {
-                return ChoFuncEx.RunWithIgnoreError(() => _callbackRecord.AfterRecordLoad(target, pair.Item1, pair.Item2), true);
+                ret = ChoFuncEx.RunWithIgnoreError(() => _callbackRecord.AfterRecordLoad(target, pair.Item1, pair.Item2, ref sp), true);
             }
             else if (Reader != null)
             {
-                return ChoFuncEx.RunWithIgnoreError(() => Reader.RaiseAfterRecordLoad(target, pair.Item1, pair.Item2), true);
+                ret = ChoFuncEx.RunWithIgnoreError(() => Reader.RaiseAfterRecordLoad(target, pair.Item1, pair.Item2, ref sp), true);
             }
-            return true;
+            skip = sp;
+            return ret;
         }
 
         private bool RaiseRecordLoadError(object target, Tuple<long, string> pair, Exception ex)

@@ -46,6 +46,18 @@ namespace ChoETL.HL7
             private set;
         }
 
+        public long? ErrorLineNo
+        {
+            get;
+            private set;
+        }
+
+        public string ErrorLine
+        {
+            get;
+            private set;
+        }
+
         private readonly List<ChoHL7Segment> _segments = new List<ChoHL7Segment>();
         protected List<ChoHL7Segment> Segments
         {
@@ -57,17 +69,21 @@ namespace ChoETL.HL7
             IsValid = true;
         }
 
-        internal void SetError(Exception ex)
+        internal void SetError(Exception ex, long? lineNo = null, string line = null)
         {
             IsValid = false;
-            ErrorMsg = ex.Message;
+            ErrorLineNo = lineNo;
+            ErrorLine = line;
+            ErrorMsg = lineNo == null ? ex.Message : $"[Line: {lineNo.Value}]: {ex.Message}";
             ErrorDetail = ChoException.ToString(ex);
         }
 
-        internal void SetError(string errMsg)
+        internal void SetError(string errMsg, long? lineNo = null, string line = null)
         {
             IsValid = false;
-            ErrorMsg = errMsg;
+            ErrorLineNo = lineNo;
+            ErrorLine = line;
+            ErrorMsg = lineNo == null ? errMsg : $"[Line: {lineNo.Value}]: {errMsg}";
             ErrorDetail = errMsg;
         }
 
@@ -200,12 +216,12 @@ namespace ChoETL.HL7
 
                     try
                     {
-                        var segment = ChoHL7Segment.Parse(pair.Item2, configuration);
+                        var segment = ChoHL7Segment.Parse(pair.Item2, pair.Item1, configuration);
                         msg.Segments.Add(segment);
                     }
                     catch (Exception ex)
                     {
-                        msg.SetError(ex);
+                        msg.SetError(ex, pair.Item1, pair.Item2);
                         break;
                     }
 
@@ -221,7 +237,7 @@ namespace ChoETL.HL7
                     msg.Construct(iter);
                     msg.IsValid = iter.Peek == null;
                     if (iter.Peek != null)
-                        msg.SetError("Unrecognized '{0}' segment found in message.".FormatString(iter.Peek.TargetType));
+                        msg.SetError("[Line: {1}]: Unrecognized '{0}' segment found in message.".FormatString(iter.Peek.TargetType, iter.Peek.LineNo));
                 }
             }
             catch (Exception ex)

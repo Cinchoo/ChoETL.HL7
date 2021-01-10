@@ -26,7 +26,7 @@ namespace ChoETL.HL7.Model.v2_3
             get { return GetValueAt<ID>(1); }
         }
         [Description("Comment")]
-        [MaxLength(30)]
+        [MaxLength(65536)]
         public FT[] Comment
         {
             get { return GetValuesAt<FT>(2); }

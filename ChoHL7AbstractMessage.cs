@@ -1,5 +1,4 @@
-﻿using ChoETL.Dynamic;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +50,22 @@ namespace ChoETL.HL7
             return msg.ToString();
         }
 
+        private void LoadAttributes(Type type, List<Attribute> attrs)
+        {
+            if (type == null || attrs == null)
+                return;
+
+            foreach (var attr in type.GetCustomAttributes(true).OfType<ChoHL7ObjectAttribute>().OrderBy(a => a.Order))
+            {
+                if (attr is ChoHL7GroupAttribute)
+                {
+                    LoadAttributes(attr.GroupOrSegmentType, attrs);
+                }
+                else
+                    attrs.Add(attr);
+            }
+        }
+
         protected virtual bool Construct(ChoPeekEnumerator<ChoHL7Segment> segments)
         {
             //Verify first element is a required segment
@@ -64,6 +79,9 @@ namespace ChoETL.HL7
             if (dupDict.Count > 0)
                 throw new ChoHL7Exception("Found segments/group defined with [{1}] duplicate order(s) in '{0}'.".FormatString(GetType().Name, String.Join(",", dupDict.Keys.ToArray())));
 
+            List<Attribute> attrs = new List<Attribute>();
+            LoadAttributes(GetType(), attrs);
+            var outAttrs = attrs.OfType<ChoHL7ObjectAttribute>().OrderBy(a => a.Order).ToArray();
             foreach (var hl7Attr in GetType().GetCustomAttributes(true).OfType<ChoHL7ObjectAttribute>().OrderBy(a => a.Order))
             {
                 if (hl7Attr.IsGroup)

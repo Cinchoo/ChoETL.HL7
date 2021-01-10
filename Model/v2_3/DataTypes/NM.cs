@@ -33,7 +33,7 @@ namespace ChoETL.HL7.Model.v2_3
 
         public NM(ChoHL7Field field) : base(field)
         {
-            Value = field.Value;
+            Value = field.ToString();
         }
 
         public override string ToString()

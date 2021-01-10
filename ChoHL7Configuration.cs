@@ -38,7 +38,11 @@ namespace ChoETL.HL7
             get;
             set;
         }
-
+        public bool DisableValueInErrorMessage
+        {
+            get;
+            set;
+        }
         [DataMember]
         public int EncodingPage
         {
@@ -75,6 +79,9 @@ namespace ChoETL.HL7
             get;
             set;
         }
+        [DataMember]
+        public string DateFormat => "yyyyMMdd";
+
         public ChoHL7Configuration(ChoHL7MessageType? messageType = null, ChoHL7Version? version = null)
         {
             BufferSize = 4096;

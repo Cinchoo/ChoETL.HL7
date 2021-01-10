@@ -10,6 +10,12 @@ namespace ChoETL.HL7
 {
     public abstract class ChoHL7AbstractField
     {
+        public ChoHL7Configuration Configuration
+        {
+            get;
+            private set;
+        }
+
         public ChoHL7Field Field
         {
             get;
@@ -18,6 +24,7 @@ namespace ChoETL.HL7
 
         public ChoHL7AbstractField(string value, ChoHL7Configuration config)
         {
+            Configuration = config;
             if (value != null)
                 Field = ChoHL7Field.Parse(value, config);
         }
@@ -25,6 +32,7 @@ namespace ChoETL.HL7
         public ChoHL7AbstractField(ChoHL7Field field)
         {
             Field = field;
+            Configuration = field != null ? field.Configuration : null;
         }
 
         public virtual void Validate()

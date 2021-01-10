@@ -52,7 +52,7 @@ namespace ChoETL.HL7.Model.v2_3
         }
         [Description("Contact Role")]
         [MaxLength(60)]
-        [Required]
+        //[Required]
         public CE ContactRole
         {
             get { return GetValueAt<CE>(6); }

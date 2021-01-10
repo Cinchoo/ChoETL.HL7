@@ -20,8 +20,8 @@ namespace ChoETL.HL7.Model.v2_3
             get { return GetValueAt<SI>(0); }
         }
         [Description("Value Type")]
-        [Required]
         [MaxLength(2)]
+        [ChoHL7EnumType(typeof(ValueType))]
         public ID ValueType
         {
             get { return GetValueAt<ID>(1); }
@@ -34,7 +34,6 @@ namespace ChoETL.HL7.Model.v2_3
             get { return GetValueAt<CE>(2); }
         }
         [Description("Observation Sub-ID")]
-        [Required]
         [MaxLength(20)]
         public ST ObservationSubID
         {

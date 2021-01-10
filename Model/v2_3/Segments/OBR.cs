@@ -15,7 +15,6 @@ namespace ChoETL.HL7.Model.v2_3
     {
         [Description("Set ID - Observation Request")]
         [MaxLength(4)]
-        [Required]
         public SI ID
         {
             get { return GetValueAt<SI>(0); }
@@ -174,7 +173,6 @@ namespace ChoETL.HL7.Model.v2_3
         }
         [Description("Quantity/Timing")]
         [MaxLength(200)]
-        [Required]
         public TQ QuantityTiming
         {
             get { return GetValueAt<TQ>(26); }

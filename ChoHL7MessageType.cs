@@ -12,6 +12,8 @@ namespace ChoETL.HL7
         [Description("ORU^R01")]
         ORU_R01,
         [Description("ADT^A01")]
-        ADT_A01
+        ADT_A01,
+        [Description("ORM^O01")]
+        ORM_O01
     }
 }

@@ -31,7 +31,7 @@ namespace ChoETL.HL7.Model.v2_3
 
         public TS(ChoHL7Field field) : base(field)
         {
-            TimeOfEvent = new ST(field.Value);
+            TimeOfEvent = new ST(field.ToString());
         }
 
         public override string ToString()

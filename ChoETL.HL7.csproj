@@ -37,7 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ChoETL, Version=1.0.3.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ChoETL, Version=1.0.5.6, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\ChoETL.dll</HintPath>
     </Reference>
@@ -163,6 +163,7 @@
     <Compile Include="Model\v2_3\DataTypes\NM.cs" />
     <Compile Include="Model\v2_3\DataTypes\TS.cs" />
     <Compile Include="Model\v2_3\DataTypes\ST.cs" />
+    <Compile Include="Model\v2_3\Enums\ValueType.cs" />
     <Compile Include="Model\v2_3\Enums\Enums.cs" />
     <Compile Include="Model\v2_3\Groups\ADT_A01\ADT_A01_INSURANCE.cs" />
     <Compile Include="Model\v2_3\Groups\ADT_A01\ADT_A01_PROCEDURE.cs" />
@@ -284,6 +285,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Libs\ChoETL.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>COPY $(ProjectDir)*.csv $(TargetDir)</PostBuildEvent>

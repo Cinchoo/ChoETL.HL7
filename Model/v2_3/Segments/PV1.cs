@@ -34,7 +34,6 @@ namespace ChoETL.HL7.Model.v2_3
             get { return GetValueAt<PL>(2); }
         }
         [Description("Admission Type")]
-        [Required]
         [MaxLength(2)]
         [ChoHL7EnumType(typeof(AdmissionType))]
         public ID AdmissionType

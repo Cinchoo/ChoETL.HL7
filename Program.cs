@@ -12,17 +12,19 @@ namespace ChoETL.HL7
     {
         static void Main(string[] args)
         {
-            ChoETLFrxBootstrap.TraceLevel = System.Diagnostics.TraceLevel.Verbose;
+            ChoETLFrxBootstrap.TraceLevel = System.Diagnostics.TraceLevel.Error;
             ChoETLFramework.Initialize();
 
             dynamic hl7Message = ChoHL7Message.Parse("Sample1.csv", new ChoHL7Configuration() { Comments = new string[] { ";" } });
-            Console.WriteLine(hl7Message.Version);
-            Console.WriteLine(hl7Message.MessageType);
-            Console.WriteLine(hl7Message.GetType().FullName);
-            Console.WriteLine("*** MessageType: " + hl7Message.MessageType);
-            Console.WriteLine("*** IsValid: " + hl7Message.IsValid);
-            Console.WriteLine("*** Err: " + hl7Message.ErrorMsg);
-            Console.WriteLine("*** Err Detail: " + hl7Message.ErrorDetail);
+            Console.WriteLine($"Version: {hl7Message.Version}");
+            Console.WriteLine($"Name: {hl7Message.GetType().FullName}");
+            Console.WriteLine($"MessageType: {hl7Message.MessageType}");
+            Console.WriteLine($"IsValid: {hl7Message.IsValid}");
+            Console.WriteLine($"Error Line No: {hl7Message.ErrorLineNo}");
+            Console.WriteLine($"Error Line: {hl7Message.ErrorLine}");
+            Console.WriteLine($"Err: {hl7Message.ErrorMsg}");
+            Console.WriteLine($"Err Detail: {hl7Message.ErrorDetail}");
+
             return;
 
             MSH msh = hl7Message.MSH;
